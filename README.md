@@ -39,7 +39,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-# React Toastify(NPM)
+# React Toastify(npm package)
 
 React Toastify is a simple and customizable toast notification library for React applications. It provides an easy way to display non-intrusive notifications to users, making it ideal for informing them about various events in your application.
 
