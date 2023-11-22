@@ -63,6 +63,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
+# React Toastify
+
+React Toastify is a simple and customizable toast notification library for React applications. It provides an easy way to display non-intrusive notifications to users, making it ideal for informing them about various events in your application.
+
+## Installation
+
+To install React Toastify, use npm or yarn:
+
+```bash
+npm install react-toastify
+# or
+yarn add react-toastify
+
+
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
