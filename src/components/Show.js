@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Show() {
   const [data, showData] = useState([]);
@@ -18,6 +20,8 @@ function Show() {
     axios
       .delete(`https://654b79ce5b38a59f28ef2458.mockapi.io/crud-task/${id}`)
       .then(() => getData());
+
+    toast.error("Data Deleted");
   }
   // getData();
 
@@ -37,9 +41,9 @@ function Show() {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Email</th>
+            <th scope="col">Id_no.</th>
             <th scope="col">Name</th>
+            <th scope="col">Email</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
@@ -90,6 +94,18 @@ function Show() {
           <button className="btn btn-primary">Create Data</button>
         </Link>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

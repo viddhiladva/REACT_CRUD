@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Update() {
   const [id, setId] = useState(0);
@@ -8,23 +10,26 @@ function Update() {
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
-   
+
   useEffect(() => {
     setId(localStorage.getItem("id"));
     setName(localStorage.getItem("name"));
     setEmail(localStorage.getItem("email"));
   }, []);
 
-  const handelUpadate =(e)=>{
+  const handelUpadate = (e) => {
     e.preventDefault();
-    axios.put(`https://654b79ce5b38a59f28ef2458.mockapi.io/crud-task/${id}`,{
-        name : name ,
+    axios
+      .put(`https://654b79ce5b38a59f28ef2458.mockapi.io/crud-task/${id}`, {
+        name: name,
         email: email,
-      }).then(()=>{
-        navigate("/show");
       })
-  }
+      .then(() => {
+        navigate("/show");
+      });
 
+    toast.success("Updated Successfully!");
+  };
 
   return (
     <div>
@@ -48,13 +53,30 @@ function Update() {
             value={email}
           />
         </div>
-        <button type="submit" className="btn btn-primary" onClick={handelUpadate}>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={handelUpadate}
+        >
           Update
         </button>
         <Link to="/show">
-              <button className="btn btn-secondary mx-2">Back</button>
+          <button className="btn btn-secondary mx-2">Back</button>
         </Link>
       </form>
+      {/* <ToastContainer /> */}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
